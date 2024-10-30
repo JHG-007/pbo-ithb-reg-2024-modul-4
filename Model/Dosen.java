@@ -1,66 +1,46 @@
 package Model;
 
-public class Dosen {
-    private String NIK;
-    private String nama;
-    private String status;
-    private int salary;
-    private int honorPerSKS;
-    private int totalJamMengajar;
+import java.util.List;
 
-    public Dosen(String NIK, String nama, String status, int salary) {
-        this.NIK = NIK;
-        this.nama = nama;
-        this.status = status;
-        this.salary = salary;
+public abstract class Dosen extends Staff {
+    private String departemen;
+    private int jamMenagajar;
+    private List<MataKuliah> mkDiajar;
+
+    public Dosen(String nama, String alamat, String ttl, String telepon, String nIK, String departemen,
+            int jamMenagajar, List<MataKuliah> mkDiajar) {
+        super(nama, alamat, ttl, telepon, nIK);
+        this.departemen = departemen;
+        this.jamMenagajar = jamMenagajar;
+        this.mkDiajar = mkDiajar;
     }
 
-    public String getNIK() {
-        return NIK;
+    public String getDepartemen() {
+        return departemen;
     }
 
-    public void setNIK(String nIK) {
-        NIK = nIK;
+    public void setDepartemen(String departemen) {
+        this.departemen = departemen;
     }
 
-    public String getNama() {
-        return nama;
+    public int getJamMenagajar() {
+        return jamMenagajar;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setJamMenagajar(int jamMenagajar) {
+        this.jamMenagajar = jamMenagajar;
     }
 
-    public String getStatus() {
-        return status;
+    public List<MataKuliah> getMkDiajar() {
+        return mkDiajar;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setMkDiajar(List<MataKuliah> mkDiajar) {
+        this.mkDiajar = mkDiajar;
     }
 
-    public int getSalary() {
-        return salary;
+    @Override
+    public String toString() {
+        return super.toString() + ", Departemen: " + departemen + ", Mata Kuliah Diajar: " + mkDiajar.toString();
     }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public int getHonorPerSKS() {
-        return honorPerSKS;
-    }
-
-    public void setHonorPerSKS(int honorPerSKS) {
-        this.honorPerSKS = honorPerSKS;
-    }
-
-    public int getTotalJamMengajar() {
-        return totalJamMengajar;
-    }
-
-    public void setTotalJamMengajar(int totalJamMengajar) {
-        this.totalJamMengajar = totalJamMengajar;
-    }
-    
 }

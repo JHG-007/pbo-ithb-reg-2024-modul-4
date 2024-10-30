@@ -1,84 +1,35 @@
 package Model;
 
-public class Mahasiswa {
+public abstract class Mahasiswa  extends  User {
     private String NIM;
-    private String nama;
-    private String status;
-    private String kodeMK;
-    private int n1, n2, n3;
-    private int totalPresensi;
+    private String jurusan;
+    
+    
 
-    public Mahasiswa(String NIM, String nama, String status) {
+    public Mahasiswa(String nama, String alamat, String ttl, String telepon, String NIM, String jurusan) {
+        super(nama, alamat, ttl, telepon);
         this.NIM = NIM;
-        this.nama = nama;
-        this.status = status;
+        this.jurusan = jurusan;
     }
 
-    public double hitungNilaiAkhir() {
-        return (n1 + n2 + n3) / 3.0;
-    }
-
-    public String getNIM() {
+    public String getNIM() {    
         return NIM;
     }
 
-    public void setNIM(String nIM) {
-        NIM = nIM;
+    public void setNIM(String NIM) {
+        this.NIM = NIM;
     }
 
-    public String getNama() {
-        return nama;
+    public String getjurusan() {
+        return jurusan;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setjurusan(String jurusan) {
+        this.jurusan = jurusan;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getKodeMK() {
-        return kodeMK;
-    }
-
-    public void setKodeMK(String kodeMK) {
-        this.kodeMK = kodeMK;
-    }
-
-    public int getN1() {
-        return n1;
-    }
-
-    public void setN1(int n1) {
-        this.n1 = n1;
-    }
-
-    public int getN2() {
-        return n2;
-    }
-
-    public void setN2(int n2) {
-        this.n2 = n2;
-    }
-
-    public int getN3() {
-        return n3;
-    }
-
-    public void setN3(int n3) {
-        this.n3 = n3;
-    }
-
-    public int getTotalPresensi() {
-        return totalPresensi;
-    }
-
-    public void setTotalPresensi(int totalPresensi) {
-        this.totalPresensi = totalPresensi;
+    @Override
+    public String toString() {
+        return super.toString() + ", NIM : " + NIM + ", Jurusan : " + jurusan;
     }
 }
